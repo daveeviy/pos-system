@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2026 at 07:47 AM
+-- Generation Time: Oct 10, 2026 at 08:14 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,7 +40,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `full_name`, `email`, `phone`, `created_at`) VALUES
-(1, 'Juan Dela Cruz', 'juan@example.com', '09171234567', '2026-10-10 12:48:15'),
+(1, 'Davee Kendra Vinoya', 'dmvinoya@fit.edu.ph', '09171234567', '2026-10-10 12:48:15'),
 (2, 'Maria Clara', 'maria@example.com', '09182345678', '2026-10-10 12:48:15'),
 (3, 'Crisostomo Ibarra', 'ibarra@example.com', '09193456789', '2026-10-10 12:48:15'),
 (4, 'Andres Bonifacio', 'andres@example.com', '09204567890', '2026-10-10 12:48:15'),
@@ -55,6 +55,7 @@ INSERT INTO `customers` (`id`, `full_name`, `email`, `phone`, `created_at`) VALU
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `full_name` varchar(100) NOT NULL,
   `avatar` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL
@@ -64,12 +65,13 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `full_name`, `avatar`, `created_at`) VALUES
-(1, 'iseyie', 'Stacy Buenafe', '1791611156_65ee0037c261ccead88d.jpg', '2026-10-10 12:48:15'),
-(2, 'cashier_maria', 'Maria Clara', NULL, '2026-10-10 12:48:15'),
-(3, 'manager_ibarra', 'Crisostomo Ibarra', NULL, '2026-10-10 12:48:15'),
-(4, 'staff_andres', 'Andres Bonifacio', NULL, '2026-10-10 12:48:15'),
-(5, 'supervisor_emilio', 'Emilio Aguinaldo', NULL, '2026-10-10 12:48:15');
+INSERT INTO `users` (`id`, `username`, `password`, `full_name`, `avatar`, `created_at`) VALUES
+(1, 'iseyie', '$2y$10$E2S5XmN9s43KjF8gR2/Nn.8oWwG0vR8fU5W1nL2K3J4I5H6G7F8E9', 'Stacy Buenafe', '1791611156_65ee0037c261ccead88d.jpg', '2026-10-10 12:48:15'),
+(2, 'cashier_maria', '$2y$10$E2S5XmN9s43KjF8gR2/Nn.8oWwG0vR8fU5W1nL2K3J4I5H6G7F8E9', 'Maria Clara', NULL, '2026-10-10 12:48:15'),
+(3, 'manager_ibarra', '$2y$10$E2S5XmN9s43KjF8gR2/Nn.8oWwG0vR8fU5W1nL2K3J4I5H6G7F8E9', 'Crisostomo Ibarra', NULL, '2026-10-10 12:48:15'),
+(4, 'staff_andres', '$2y$10$E2S5XmN9s43KjF8gR2/Nn.8oWwG0vR8fU5W1nL2K3J4I5H6G7F8E9', 'Andres Bonifacio', NULL, '2026-10-10 12:48:15'),
+(5, 'supervisor_emilio', '$2y$10$E2S5XmN9s43KjF8gR2/Nn.8oWwG0vR8fU5W1nL2K3J4I5H6G7F8E9', 'Emilio Aguinaldo', NULL, '2026-10-10 12:48:15'),
+(6, 'dvy', '$2y$10$nNTPwVnNhRIgRVXTbNmsze0tMGQDIgHigOg4hlQ1Hg.0zV8e9JBlu', 'Davee Kendra Vinoya', '1791612862_bab2a67e957add60ca24.png', '2026-10-10 14:05:44');
 
 --
 -- Indexes for dumped tables
@@ -102,7 +104,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

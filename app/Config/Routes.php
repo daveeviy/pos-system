@@ -6,24 +6,28 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-// 1. Landing & About Pages
+// 1. Landing & About Pages (Public)
 $routes->get('/', 'Pages::index');
 $routes->get('about', 'Pages::about');
 
-// 2. Customer & User Pages
-$routes->get('customers', 'Customers::index');
-$routes->get('users', 'Users::index');
+// 2. Authentication Routes (Public)
+$routes->get('login', 'Auth::login');
+$routes->post('login', 'Auth::attemptLogin');
+$routes->get('logout', 'Auth::logout');
 
-// Customer Routes
-$routes->get('customers', 'Customers::index');
-$routes->get('customers/new', 'Customers::new');
-$routes->post('customers/create', 'Customers::create');
-$routes->get('customers/edit/(:num)', 'Customers::edit/$1');
-$routes->post('customers/update/(:num)', 'Customers::update/$1');
+// 3. Protected Routes (Requires Login)
+$routes->group('', ['filter' => 'auth'], static function ($routes) {
+    // Customer Routes
+    $routes->get('customers', 'Customers::index');
+    $routes->get('customers/new', 'Customers::new');
+    $routes->post('customers/create', 'Customers::create');
+    $routes->get('customers/edit/(:num)', 'Customers::edit/$1');
+    $routes->post('customers/update/(:num)', 'Customers::update/$1');
 
-// User Routes
-$routes->get('users', 'Users::index');
-$routes->get('users/new', 'Users::new');
-$routes->post('users/create', 'Users::create');
-$routes->get('users/edit/(:num)', 'Users::edit/$1');
-$routes->post('users/update/(:num)', 'Users::update/$1');
+    // User Routes
+    $routes->get('users', 'Users::index');
+    $routes->get('users/new', 'Users::new');
+    $routes->post('users/create', 'Users::create');
+    $routes->get('users/edit/(:num)', 'Users::edit/$1');
+    $routes->post('users/update/(:num)', 'Users::update/$1');
+});

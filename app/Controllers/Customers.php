@@ -3,14 +3,22 @@
 namespace App\Controllers;
 
 use App\Models\CustomerModel;
+use CodeIgniter\HTTP\RequestInterface;
+use CodeIgniter\HTTP\ResponseInterface;
+use Psr\Log\LoggerInterface;
 
 class Customers extends BaseController
 {
     protected $customerModel;
 
-    public function __construct()
+    public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
+        // Do Not Edit This Line
+        parent::initController($request, $response, $logger);
+
+        // Load model and helpers
         $this->customerModel = new CustomerModel();
+        helper('form');
     }
 
     public function index()
