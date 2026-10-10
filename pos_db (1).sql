@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2026 at 06:58 AM
+-- Generation Time: Oct 10, 2026 at 07:47 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -56,6 +56,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `full_name` varchar(100) NOT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -63,12 +64,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `full_name`, `created_at`) VALUES
-(1, 'admin_juan', 'Juan Dela Cruz', '2026-10-10 12:48:15'),
-(2, 'cashier_maria', 'Maria Clara', '2026-10-10 12:48:15'),
-(3, 'manager_ibarra', 'Crisostomo Ibarra', '2026-10-10 12:48:15'),
-(4, 'staff_andres', 'Andres Bonifacio', '2026-10-10 12:48:15'),
-(5, 'supervisor_emilio', 'Emilio Aguinaldo', '2026-10-10 12:48:15');
+INSERT INTO `users` (`id`, `username`, `full_name`, `avatar`, `created_at`) VALUES
+(1, 'iseyie', 'Stacy Buenafe', '1791611156_65ee0037c261ccead88d.jpg', '2026-10-10 12:48:15'),
+(2, 'cashier_maria', 'Maria Clara', NULL, '2026-10-10 12:48:15'),
+(3, 'manager_ibarra', 'Crisostomo Ibarra', NULL, '2026-10-10 12:48:15'),
+(4, 'staff_andres', 'Andres Bonifacio', NULL, '2026-10-10 12:48:15'),
+(5, 'supervisor_emilio', 'Emilio Aguinaldo', NULL, '2026-10-10 12:48:15');
 
 --
 -- Indexes for dumped tables
